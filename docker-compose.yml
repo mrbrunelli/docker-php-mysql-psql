@@ -30,7 +30,7 @@ services:
             - PMA_ARBITRARY=1 # Habilitando a opção para inserir host no login
 
     db:
-        image: mysql:8.0
+        image: mysql:5.7 # A versão 8.0 está com instabilidades
         container_name: mrb-mysql
         restart: always # Por padrão o Docker não reinicia o container, vamos mudar isso.
         volumes:
@@ -40,9 +40,13 @@ services:
         environment:
             - MYSQL_ROOT_PASSWORD=root # Definir senha do usuário root
             - MYSQL_DATABASE=teste # Iniciar o container com um banco criado
-# Para liberar acesso do PHP ao mysql precisei fazer o seguinte:
+
+#-----------------------------------------------------------------------------------------------------------------------------------------------#
+# Caso dê problema para seu PHP conectar ao banco, use a versão 5.7 do MySQL ou faça o tutorial abaixo:
 # docker container exec -it mrb-mysql bash
 # mysql -u root -p
 # ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 # ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY 'root';
 # ALTER USER 'default'@'%' IDENTIFIED WITH mysql_native_password BY 'secret';
+#-----------------------------------------------------------------------------------------------------------------------------------------------#
+
