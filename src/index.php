@@ -1,7 +1,7 @@
 <?php
 
-include 'con.php';
-include 'fn.php';
+include 'config/con.php';
+include 'config/fn.php';
 
 $timezones = array(
     'SP' => 'America/Sao_Paulo',
@@ -19,12 +19,15 @@ date_default_timezone_set($timezones['SP']);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Docker PHP + Apache + MySQL</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <div>
-        <?= listarUsuarios() ?>
-    </div>
+    <section>
+        <div>
+            <?= listarUsuarios() ?>
+        </div>
+    </section>
 </body>
 
 </html>

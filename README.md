@@ -1,6 +1,8 @@
 # :whale: Docker Image com ambiente PHP & MySQL
 
-## Para executar é simples, digite no terminal do vscode mesmo:
+## Para executar é simples:
+1. Clone o repositório e navegue com seu terminal até na pasta raíz do projeto.
+2. Estando dentro da pasta raíz, execute o comando abaixo:
 
 ```docker
 docker-compose up
