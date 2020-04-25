@@ -29,3 +29,16 @@ docker-compose up
 
 ## Conectar MySQL com ferramenta de manipulação (Workbench, Dbeaver...)
 * Deixei uma porta do container do MySQL aberta para funcionar em softwares na máquina. Nesse caso quando for conectar use **localhost:3306** usuário e senha continuam sendo **root e root**.
+
+## PhpMyAdmin
+* Adicionei uma imagem do PhpMyAdmin para ficar mais fácil para quem não tem outros softwares instalados na máquina. Disponibilizei o acesso dele na porta **8080**, então é só acessar **localhost:8080** no navegador e ele já estará disponível. Para fazer login é só digitar as seguintes credenciais:
+```bash
+    # Host (deve ser o nome do container do MySQL e não localhost)
+    mrb-mysql
+
+    # User
+    root
+
+    # Password
+    root
+```
