@@ -1,5 +1,11 @@
 # :whale: Docker Image com ambiente PHP & MySQL
 
+## Para executar é simples, digite no terminal do vscode mesmo:
+
+```docker
+docker-compose up
+```
+
 ## Código PHP
 * Todo o código PHP deve ficar dentro da pasta **src**. Eu criei um mapeamento automático, para que a cada alteração feita no código o Docker copie seu conteúdo para dentro do Container.
 
