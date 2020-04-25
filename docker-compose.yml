@@ -14,9 +14,25 @@ services:
         links: # Criar conexão com o container do banco de dados
             - db
 
+    phpmyadmin:
+        build:
+            context: ./phpmyadmin
+            dockerfile: Dockerfile
+        container_name: mrb-phpmyadmin
+        restart: always
+        volumes:
+            - /sessions
+        ports:
+            - "8080:80"
+        links:
+            - db
+        environment:
+            - PMA_ARBITRARY=1 # Habilitando a opção para inserir host no login
+
     db:
         image: mysql:8.0
         container_name: mrb-mysql
+        restart: always # Por padrão o Docker não reinicia o container, vamos mudar isso.
         volumes:
             - /var/lib/mysql
         ports:
