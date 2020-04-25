@@ -24,7 +24,7 @@ services:
         environment:
             - MYSQL_ROOT_PASSWORD=root # Definir senha do usuário root
             - MYSQL_DATABASE=teste # Iniciar o container com um banco criado
-# Para liberar acesso do PHP ao mysql precise fazer o seguinte:
+# Para liberar acesso do PHP ao mysql precisei fazer o seguinte:
 # docker container exec -it mrb-mysql bash
 # mysql -u root -p
 # ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
