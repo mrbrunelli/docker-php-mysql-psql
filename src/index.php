@@ -13,7 +13,7 @@ date_default_timezone_set($timezones['SP']);
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -23,11 +23,14 @@ date_default_timezone_set($timezones['SP']);
 </head>
 
 <body>
+
     <section>
         <div>
-            <?= listarUsuarios() ?>
+            <h1>Hello World</h1>
+            <span><?= listarUsuarios() ?></span>
         </div>
     </section>
+
 </body>
 
 </html>

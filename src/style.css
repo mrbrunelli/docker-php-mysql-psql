@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+}
+
+section>div {
+    min-width: 200px;
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: tomato;
+    color: white;
+    border-radius: 20px;
+    box-shadow: 2px 3px 7px 0 rgba(0, 0, 0, 0.5);
+    transition: 500ms;
+}
+
+section>div:hover {
+    box-shadow: 0 0 0 0;
+    opacity: 90%;
+    transform: scale(0.99);
+}
+
+section>div>:nth-child(1) {
+    font-size: 52px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    font-family: monospace, Arial;
+}
+
+section>div>:nth-child(2)>h1 {
+    text-transform: uppercase;
+    font-weight: bolder;
+    text-align: center;
+    font-size: 30px;
+    font-family: monospace, Arial;
+}
+
+section>div>:nth-child(2)>p {
+    font-size: 18px;
+    text-align: left;
+    font-family: monospace, Arial;
+}
+
