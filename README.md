@@ -8,7 +8,7 @@
 docker-compose up
 ```
 
-## Código PHP
+## :elephant: Código PHP
 * Todo o código PHP deve ficar dentro da pasta **src**. Eu criei um mapeamento automático, para que a cada alteração feita no código o Docker copie seu conteúdo para dentro do Container.
 
 ## Conexão com o DB MySQL & DB PostgreSQL
@@ -59,8 +59,8 @@ try {
     root
 ```
 
-## Conectar PostgreSQl com ferramenta de manipulação (PgAdmin, Dbeaver, SqlManager)
-* Deixei uma porta do container do PostgreSQL aberta para funcionar em softwares na máquina. Caso não vá usar, pose remover do **docker-compose.yml**.
+## Conectar PostgreSQL com ferramenta de manipulação (PgAdmin, Dbeaver, SqlManager)
+* Deixei uma porta do container do PostgreSQL aberta para funcionar em softwares na máquina. Caso não vá usar, pode remover do **docker-compose.yml**.
 ```bash
 # Host (Nesse caso deve ser localhost, pois o software não consegue se conectar direto com o container)
 localhost
