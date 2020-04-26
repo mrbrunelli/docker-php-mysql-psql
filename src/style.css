@@ -10,7 +10,7 @@ section {
 
 section>div {
     min-width: 200px;
-    width: 800px;
+    width: 1000px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,6 +20,8 @@ section>div {
     border-radius: 20px;
     box-shadow: 2px 3px 7px 0 rgba(0, 0, 0, 0.5);
     transition: 500ms;
+    padding: 30px;
+    cursor: pointer;
 }
 
 section>div:hover {
@@ -29,7 +31,7 @@ section>div:hover {
 }
 
 section>div>:nth-child(1) {
-    font-size: 52px;
+    font-size: 30px;
     display: flex;
     justify-content: center;
     width: 100%;
