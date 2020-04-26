@@ -12,7 +12,8 @@ services:
             - "80:80"
             - "443:443"
         links: # Criar conexão com o container do banco de dados
-            - db
+            - mysql
+            - postgres
 
     phpmyadmin:
         build:
@@ -25,11 +26,19 @@ services:
         ports:
             - "8080:80"
         links:
-            - db
+            - mysql
         environment:
             - PMA_ARBITRARY=1 # Habilitando a opção para inserir host no login
 
-    db:
+    postgres:
+        image: postgres:12
+        container_name: mrb-pgsql
+        restart: always
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_PASSWORD=postgres
+    mysql:
         image: mysql:5.7 # A versão 8.0 está com instabilidades
         container_name: mrb-mysql
         restart: always # Por padrão o Docker não reinicia o container, vamos mudar isso.
