@@ -11,10 +11,11 @@ docker-compose up
 ## Código PHP
 * Todo o código PHP deve ficar dentro da pasta **src**. Eu criei um mapeamento automático, para que a cada alteração feita no código o Docker copie seu conteúdo para dentro do Container.
 
-## Conexão com o db MySQL
-* Quando for conectar no PDO, certifique-se de que os dados estão preenchidos da maneira certa. Segue um exemplo:
+## Conexão com o DB MySQL & DB PostgreSQL
+* Quando for conectar no PDO, certifique-se de que os dados estão preenchidos da maneira certa. Criei duas conexões separadas para ilustrar como devem ser feitas as conexões. As conexões estão em arquivos separados. Segue um exemplo:
 ```php
 <?php
+    // Conexão MySQL
     $server = 'mrb-mysql'; // Deve ser o nome do container
     $user = 'root';
     $pass = 'root';
@@ -26,13 +27,26 @@ docker-compose up
         $msg = $err->getMessage();
         echo "Erro ao conectar no banco de dados: $msg";
     }
+
+    // Conexão PostgreSQL
+    $server = 'mrb-pgsql';
+    $db = 'postgres';
+    $user = 'postgres';
+    $pass = 'postgres';
+
+try {
+    $pdo = new PDO("pgsql:host=$server;dbname=$db;", $user, $pass);
+} catch (PDOException $err) {
+    $msg = $err->getMessage();
+    echo "Erro ao conectar no banco de dados: $msg";
+}
 ?>
 ```
 
 ## Conectar MySQL com ferramenta de manipulação (Workbench, Dbeaver...)
 * Deixei uma porta do container do MySQL aberta para funcionar em softwares na máquina. Como esses softwares estão fora do container, eu precisei liberar uma porta no container para ter essa conexão. Segue configuração:
 ```bash
-    # Host (Nesse caso deve localhost, pois o software não consegue se conectar direto com o container)
+    # Host (Nesse caso deve ser localhost, pois o software não consegue se conectar direto com o container)
     localhost
 
     # Port
@@ -43,6 +57,22 @@ docker-compose up
 
     # Password
     root
+```
+
+## Conectar PostgreSQl com ferramenta de manipulação (PgAdmin, Dbeaver, SqlManager)
+* Deixei uma porta do container do PostgreSQL aberta para funcionar em softwares na máquina. Caso não vá usar, pose remover do **docker-compose.yml**.
+```bash
+# Host (Nesse caso deve ser localhost, pois o software não consegue se conectar direto com o container)
+localhost
+
+# Port
+5432
+
+# User
+postgres
+
+# Pass
+postgres
 ```
 
 ## PhpMyAdmin
