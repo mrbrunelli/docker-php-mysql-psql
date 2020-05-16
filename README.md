@@ -5,8 +5,12 @@
 2. Estando dentro da pasta raíz, execute o comando abaixo:
 
 ```docker
-docker-compose up
+docker-compose up -d
 ```
+
+> Para ver os containers executando em segundo plano:
+![](https://i.ibb.co/c25qqJN/screely-1589634012342.png)
+
 
 ## :elephant: Código PHP
 * Todo o código PHP deve ficar dentro da pasta **src**. Eu criei um mapeamento automático, para que a cada alteração feita no código o Docker copie seu conteúdo para dentro do Container.
@@ -33,7 +37,7 @@ docker-compose up
     $db = 'postgres';
     $user = 'postgres';
     $pass = 'postgres';
-
+    
 try {
     $pdo = new PDO("pgsql:host=$server;dbname=$db;", $user, $pass);
 } catch (PDOException $err) {
