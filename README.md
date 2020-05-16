@@ -13,39 +13,12 @@ docker-compose up -d
 
 
 ## :elephant: Código PHP
-* Todo o código PHP deve ficar dentro da pasta **src**. Eu criei um mapeamento automático, para que a cada alteração feita no código o Docker copie seu conteúdo para dentro do Container.
+> Todo o código PHP deve ficar dentro da pasta **/src**. Eu criei um mapeamento automático, para que a cada alteração feita no código o Docker copie seu conteúdo para dentro do Container.
+![](https://i.ibb.co/Wy8f3Sf/screely-1589634468512.png)
 
-## Conexão com o DB MySQL & DB PostgreSQL
-* Quando for conectar no PDO, certifique-se de que os dados estão preenchidos da maneira certa. Criei duas conexões separadas para ilustrar como devem ser feitas as conexões. As conexões estão em arquivos separados. Segue um exemplo:
-```php
-<?php
-    // Conexão MySQL
-    $server = 'mrb-mysql'; // Deve ser o nome do container
-    $user = 'root';
-    $pass = 'root';
-    $db = 'teste'; // Mude para o nome do seu banco
-
-    try {
-        $pdo = new PDO("mysql:host=$server;dbname=$db;charset=utf8", $user, $pass);
-    } catch (PDOException $err) {
-        $msg = $err->getMessage();
-        echo "Erro ao conectar no banco de dados: $msg";
-    }
-
-    // Conexão PostgreSQL
-    $server = 'mrb-pgsql';
-    $db = 'postgres';
-    $user = 'postgres';
-    $pass = 'postgres';
-    
-try {
-    $pdo = new PDO("pgsql:host=$server;dbname=$db;", $user, $pass);
-} catch (PDOException $err) {
-    $msg = $err->getMessage();
-    echo "Erro ao conectar no banco de dados: $msg";
-}
-?>
-```
+## :electric_plug: Conexão com o DB MySQL & DB PostgreSQL
+> Quando for conectar no PDO, certifique-se de que os dados estão preenchidos da maneira certa. Criei duas conexões separadas para ilustrar como devem ser feitas as conexões. As conexões estão em arquivos separados. Segue um exemplo:
+![](https://i.ibb.co/RgvQ655/screely-1589634945297.png)
 
 ## Conectar MySQL com ferramenta de manipulação (Workbench, Dbeaver...)
 * Deixei uma porta do container do MySQL aberta para funcionar em softwares na máquina. Como esses softwares estão fora do container, eu precisei liberar uma porta no container para ter essa conexão. Segue configuração:
